@@ -64,7 +64,41 @@ const app = {
 
      //Invoking the fillProfil method and fill it with herculeProfil object
     fillProfil(herculeProfil); 
-    
+
+    //Defining Hercule' friends
+    const herculeFriends =[
+        "Jupiter",
+        "Junon",
+        "Alcmène",
+        "Déjanire"
+    ];
+
+    //Method rendering the friends on the browser
+    const printFriends = (friends) => {
+        const listElem = document.getElementById('friends');
+        listElem.classList.remove('hidden');
+        if (!friends || !Array.isArray(friends)) {
+          listElem.innerHTML = '<li class="red">Tu as bien appelé <code>printFriends</code> mais tu ne sembles pas avoir passé de tableau en argument</li>';
+        }
+        else {
+          friends.forEach((friend) => {
+            const newElem = document.createElement('li');
+            newElem.className = 'tags__item';
+            newElem.innerHTML = friend;
+            listElem.appendChild(newElem);
+          });
+        }
+      };
+
+      //Executing the friends method filled with herculeFriends array
+      printFriends(herculeFriends);
+
+      //Defining Hercule's Besti
+      const setBestFriend = (name) => {
+        document.querySelector('#best-friend').textContent = name;
+      };
+      //Here's his besti => index 0 of herculeFriends array
+      setBestFriend(herculeFriends[0]);
     },
 
    
