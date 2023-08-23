@@ -9,6 +9,7 @@ const app = {
         arm: 60.5,
         inRelationship: true
        };
+       
        //Methode that allow render the hercule infos in the page
        const fillProfil = (profil) => {
         const listElem = document.getElementById('profil');
@@ -66,7 +67,7 @@ const app = {
     fillProfil(herculeProfil); 
 
     //Defining Hercule' friends
-    const herculeFriends =[
+    const herculeFriends = [
         "Jupiter",
         "Junon",
         "Alcmène",
@@ -101,6 +102,7 @@ const app = {
       setBestFriend(herculeFriends[0]);
 
       //Step 3: DOM Manip
+      const titre = () => {
       const title = document.createElement('h1');
       title.classList.add('banner__title');
       title.innerText = 'Vous consultez le profil de Hercule';
@@ -108,6 +110,8 @@ const app = {
       const parentElem = document.getElementById('header-banner');
       //Append the relation
       parentElem.appendChild(title);
+     };
+     titre();
 
       //Step 4 : Loops
 
@@ -143,7 +147,7 @@ const app = {
         (availability.innerText = 'Non Disponible', availability.classList.add('off'));
         
         
-        /*//CASE 2: Simplest way with a if statement
+        /*CASE 2: Simplest way with a if statement
         if(hour > 8 && hour < 20){
            return availability.innerText = 'Disponible';
         }else{
@@ -154,10 +158,17 @@ const app = {
     //Invoking the availability method
     getHour();
 
-    },
-
-   
-    
+    //STEP 6: Functions
+    const surname = () => {
+    const pseudo = (nom, departmentNum) => {
+        return `${nom}-du-${departmentNum}`
+    }
+    const pseudoValue = pseudo(herculeProfil.name, herculeProfil.department);
+    const profilName = document.getElementById('profil-name');
+    profilName.append(pseudoValue)
+    }; 
+    surname();
+},
     
    
 };
