@@ -9,7 +9,7 @@ const app = {
         arm: 60.5,
         inRelationship: true
        };
-       
+
        //Methode that allow render the hercule infos in the page
        const fillProfil = (profil) => {
         const listElem = document.getElementById('profil');
@@ -166,10 +166,18 @@ const app = {
     const pseudoValue = pseudo(herculeProfil.name, herculeProfil.department);
     const profilName = document.getElementById('profil-name');
     profilName.append(pseudoValue)
-    }; 
+    };
     surname();
+
+    //STEP 7: EVENT
+    const btnMenu = document.getElementById('menu-toggler');
+    btnMenu.addEventListener('click', app.btnMenu);
 },
-    
+    //Declaring the event handler
+    btnMenu: () => {
+        const headerMenu = document.getElementById('header-banner');
+        headerMenu.classList.toggle('banner--open');
+    }
    
 };
 
