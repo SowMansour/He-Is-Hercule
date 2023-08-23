@@ -108,6 +108,28 @@ const app = {
       const parentElem = document.getElementById('header-banner');
       //Append the relation
       parentElem.appendChild(title);
+
+      //Step 4 : Loops
+
+      const displayWork = () => {
+        const works = document.querySelectorAll('.panel--work');
+        /* CASE 1 : Display the work with a simple FOR loop
+        
+        for(let i = 0; i < works.length; i++){
+            works[i].classList.remove('hidden');
+        }
+        CASE 2 : Display the work using FOR...OF array loop
+        for(const work of works){
+            work.classList.remove('hidden');
+        }*/
+        //CASE 3: Display the work using the FOR...EACH() method
+        works.forEach(work =>{
+            work.classList.remove('hidden');
+        })
+      };
+      //Invoking the method
+      displayWork();
+
     },
 
    
