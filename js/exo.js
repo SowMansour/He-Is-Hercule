@@ -130,6 +130,30 @@ const app = {
       //Invoking the method
       displayWork();
 
+      //STEP 5: Conditional statements
+      //Defining time and retrieve elem needed for the if statement
+      const getHour = () => {
+        const date = new Date('March 23, 2023 10:30');
+        const hour = date.getHours();
+    
+        const availability = document.getElementById('availability');
+      
+        //CASE 1: Using ternary Operator
+        return hour > 8 && hour < 20 ? availability.innerText = 'Disponible' : 
+        (availability.innerText = 'Non Disponible', availability.classList.add('off'));
+        
+        
+        /*//CASE 2: Simplest way with a if statement
+        if(hour > 8 && hour < 20){
+           return availability.innerText = 'Disponible';
+        }else{
+            availability.innerText = 'Non Disponible';
+            availability.classList.add('off')
+        } */
+    };
+    //Invoking the availability method
+    getHour();
+
     },
 
    
