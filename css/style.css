@@ -69,6 +69,17 @@ body {
   font-size: 0.8em;
 }
 
+.fatiguer{
+  margin-top: 0.5rem;
+  color: red;
+  text-align: center;
+}
+
+.invisibleFatigue{
+  display: none;
+
+}
+
 .menu {
   position: absolute;
   left: 0;

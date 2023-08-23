@@ -137,7 +137,7 @@ const app = {
       //STEP 5: Conditional statements
       //Defining time and retrieve elem needed for the if statement
       const getHour = () => {
-        const date = new Date('March 23, 2023 10:30');
+        const date = new Date('March 23, 2023 3:30');
         const hour = date.getHours();
     
         const availability = document.getElementById('availability');
@@ -172,11 +172,27 @@ const app = {
     //STEP 7: EVENT
     const btnMenu = document.getElementById('menu-toggler');
     btnMenu.addEventListener('click', app.btnMenu);
+
+    //STEP 8: HANDLING FORM
+    const form = document.getElementById('contact');
+    form.addEventListener('submit', app.submitForm);
 },
-    //Declaring the event handler
+    //Defining the event handler
     btnMenu: () => {
         const headerMenu = document.getElementById('header-banner');
         headerMenu.classList.toggle('banner--open');
+    },
+
+    //Defining submitForm handler
+    submitForm: (e) =>{
+        e.preventDefault();
+        const inputMess = document.querySelector('.contact__input');
+        inputMessValue = inputMess.value.trim();
+        //Displaying hercule is not available
+        const fatigueMess = document.querySelector('.fatiguer')
+        fatigueMess.classList.add('invisibleFatigue');
+
+        inputMess.nextElementSibling.classList.remove('invisibleFatigue');
     }
    
 };
