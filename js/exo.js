@@ -176,14 +176,52 @@ const app = {
     //STEP 8: HANDLING FORM
     const form = document.getElementById('contact');
     form.addEventListener('submit', app.submitForm);
-},
-    //Defining the event handler
+
+    //STEP 9 :Algorithms (VOTING)
+    const election = () => {
+    const vote = {
+        hercule: 120,
+        cesar: 53,
+      };
+
+    const calculateHerculeV = (h, c) =>{
+       const herculevote = (h / (h + c)) * 100;
+       return herculevote
+    }
+    const herculeVoteValue = Math.ceil(calculateHerculeV(vote.hercule, vote.cesar));
+    //Retrieve herculeVoteValue's parent and bind them
+    const detailHercule = document.getElementById('trends-hercule');
+    famousHercule = detailHercule.children[1];
+    famousHercule.append(`${herculeVoteValue}%`);
+    //retrieve the needed elem and change it's width
+    widthHercule =detailHercule.children[2];
+    widthHercule.style.width = '70%';
+
+    const calculateCesarV = (c, h) =>{
+        const cesarVote = (c / (h + c)) * 100;
+        return cesarVote
+     };
+    const cesarVoteValue = Math.floor(calculateCesarV(vote.cesar, vote.hercule));
+    //Retrieve cesarVoteValue's parent and bind them
+    const detailCesar = document.getElementById('trends-cesar');
+    famousCesar = detailCesar.children[1];
+    famousCesar.append(`${cesarVoteValue}%`);
+    //retrieve the needed elem and change it's width
+    widthCesar = detailCesar.children[2];
+    widthCesar.style.width = '30%';
+    };
+    //Executing election method
+    election();
+    },
+    
+
+    //STEP 7: Defining the event handler
     btnMenu: () => {
         const headerMenu = document.getElementById('header-banner');
         headerMenu.classList.toggle('banner--open');
     },
 
-    //Defining submitForm handler
+    //STEP 8: Defining submitForm handler
     submitForm: (e) =>{
         e.preventDefault();
         const inputMess = document.querySelector('.contact__input');
@@ -193,7 +231,8 @@ const app = {
         fatigueMess.classList.add('invisibleFatigue');
 
         inputMess.nextElementSibling.classList.remove('invisibleFatigue');
-    }
+    },
+    
    
 };
 
