@@ -99,6 +99,15 @@ const app = {
       };
       //Here's his besti => index 0 of herculeFriends array
       setBestFriend(herculeFriends[0]);
+
+      //Step 3: DOM Manip
+      const title = document.createElement('h1');
+      title.classList.add('banner__title');
+      title.innerText = 'Vous consultez le profil de Hercule';
+      //retrieve the futur parent elem
+      const parentElem = document.getElementById('header-banner');
+      //Append the relation
+      parentElem.appendChild(title);
     },
 
    
