@@ -177,7 +177,7 @@ const app = {
     const form = document.getElementById('contact');
     form.addEventListener('submit', app.submitForm);
 
-    //STEP 9 :Algorithms (VOTING)
+    //STEP 9 :Algorithms with object (VOTING)
     const election = () => {
     const vote = {
         hercule: 120,
@@ -212,6 +212,54 @@ const app = {
     };
     //Executing election method
     election();
+
+    // STEP 10: More Algorithms with array (Showing Hercule Activiies)
+    const activities = [
+      {
+        author: 'Hercule',
+        finished: true,
+        title: 'Le lion de Némée',
+      },
+      {
+        author: 'Hercule',
+        finished: false,
+        title: 'La biche de Cérynie',
+      },
+      {
+        author: 'Jules César',
+        finished: true,
+        title: 'Conquête de la Gaule',
+      },
+      {
+        author: 'Hercule',
+        finished: true,
+        title: 'Le sanglier d\'Erymanthe',
+      },
+      {
+        author: 'Hercule',
+        finished: true,
+        title: 'L\'hydre de Lerne',
+      },
+    ];
+    
+    const getHerculeActivities = (task) => {
+    //Retrieve needed elem and display it by removing the hidden class
+    const occupation = document.getElementById('activities');
+    occupation.classList.remove('hidden');
+
+    /*Retrieve the task balise ul and itirate in each elem activities array to
+    create the li elem and append them to ul task parent*/
+    const listTask = document.querySelector('.tasks');
+    task.forEach(activity => {
+      if(activity.author === 'Hercule'){
+        const li = document.createElement('li');
+        li.textContent = activity.title;
+        listTask.appendChild(li);
+      };
+      })
+   };
+   getHerculeActivities(activities);
+   
     },
     
 
